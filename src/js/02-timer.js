@@ -5,18 +5,30 @@ import "flatpickr/dist/flatpickr.min.css";
 
 /* const dateSelected = document.getElementById('datetime-picker') */
 /* const selectDate = document.querySelector('input') */
+
+
 let selectedDate
+let timeCounter=0
+let todaysDate=new Date().getTime()
+const values=document.getElementsByClassName('value')
 const startButton= document.querySelector('button')
 const options = {
   
   enableTime: true,
   time_24hr: true,
   defaultDate: new Date(),
-  
-  minuteIncrement: 1,
-  onClose(selectedDates) {
+    minuteIncrement: 1,
+  onClose(selectedDates,defaultDate) {
     console.log("dia seleccionado",selectedDates[0].getTime());
     selectedDate= selectedDates[0].getTime()
+/*     console.log("defaultDate",defaultDate, "dia seleccionado", selectedDates[0]);
+ */    
+      if(todaysDate>selectedDates[0].getTime()){
+        alert("Please choose a date in the future")
+    }  
+    if(todaysDate<selectedDates[0].getTime()){
+       startButton.disabled=false 
+    }
     
   },
 };
@@ -52,6 +64,7 @@ flatpickr("#datetime-picker", options);
     dateFormat: "Y-m-d H:i",
     
   }); */
+  startButton.disabled=true 
   startButton.addEventListener('click', activateCounter)
   function activateCounter(){
     let countDownTempo = setInterval(() => {
@@ -62,18 +75,26 @@ flatpickr("#datetime-picker", options);
       console.log(selectedDate)
       if(todaytimeinMiliseg>selectedDate){
         console.log("seleccione otra fech")
-        alert("Please choose a date in the future")
+        
 
       }
       else{
-        console.log ("todo bien")
+        /* startButton.disabled=true */
         console.log(selectedDate-todaytimeinMiliseg)
          let difFerence=selectedDate-todaytimeinMiliseg
-        console.log(convertMs(difFerence)); 
-        
+        /* console.log(convertMs(difFerence));  */
+        timeCounter=convertMs(difFerence)
+        /* console.log("1111111111111111",timeCounter) */
+        values[0].textContent=timeCounter.days
+        values[1].textContent=timeCounter.hours
+        values[2].textContent=timeCounter.minutes
+        values[3].textContent=timeCounter.seconds
       }
     }, 1000);
     
   }
+  
+
+ 
 
   
