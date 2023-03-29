@@ -1,0 +1,2 @@
+console.log("conected");const o=document.querySelectorAll("button");console.log(o);const e=o[0],n=o[1];let t=null;function l(){return`#${Math.floor(16777215*Math.random()).toString(16)}`}e.addEventListener("click",(function(){t=setInterval((()=>{document.body.style.backgroundColor=l()}),1e3),console.log("Click en start"),console.log(l),o[0].disabled=!0})),n.addEventListener("click",(function(){console.log("DEtenido"),clearInterval(t),console.log(`Interval with id ${t} has stopped!`),o[0].disabled=!1}));
+//# sourceMappingURL=01-color-switcher.c6f9b24f.js.map
