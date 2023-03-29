@@ -26,4 +26,5 @@ function letsStop(){
     clearInterval(timerId)
     console.log(`Interval with id ${timerId} has stopped!`);
     buttons[0].disabled=false
+    console.log("aa")
 }
