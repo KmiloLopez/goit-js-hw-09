@@ -74,8 +74,8 @@ flatpickr("#datetime-picker", options);
       console.log(todaytimeinMiliseg)
       console.log(selectedDate)
       if(todaytimeinMiliseg>selectedDate){
-        console.log("seleccione otra fech")
-        
+        // console.log("seleccione otra fech")
+        alert("TIME's UP! Please refresh the site to enter a new date")
 
       }
       else{

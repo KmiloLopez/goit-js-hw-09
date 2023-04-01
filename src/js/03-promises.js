@@ -1,3 +1,7 @@
+import Notiflix from 'notiflix';
+
+
+
 console.log("CONECTED");
 const form = document.getElementsByClassName('form')
 const CreateButton= document.querySelector('button') 
@@ -40,12 +44,14 @@ form[0].addEventListener("submit", (e)=>{
       });
       promiseReturn
           .then (res=>{
-           console.log(`✅ Fulfilled promise ${res.position} in ${res.delay}ms`);
+            Notiflix.Notify.success(`✅ Fulfilled promise ${res.position} in ${res.delay}ms`);
+           /* console.log(`✅ Fulfilled promise ${res.position} in ${res.delay}ms`); */
            
             
           })
           .catch(error=>{
-            console.log(`❌ Rejected promise ${error.position} in ${error.delay}ms`);
+            Notiflix.Notify.failure(`❌ Rejected promise ${error.position} in ${error.delay}ms`);
+           /*  console.log(`❌ Rejected promise ${error.position} in ${error.delay}ms`); */
             
           })
     } 
