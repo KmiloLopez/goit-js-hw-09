@@ -12,6 +12,7 @@ form[0].addEventListener("submit", (e)=>{
   e.preventDefault()
   const {delay, step, amount}=e.currentTarget
   let delayEntered=0;
+  let stepEndered=0;
   delayEntered= parseInt(delay.value)
   stepEndered= parseInt(step.value)
 
